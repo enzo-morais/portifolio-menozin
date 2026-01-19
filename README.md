@@ -1,174 +1,101 @@
-# Portfólio Menozin
+# 🚀 Portfólio — Menozin
 
-Portfólio pessoal profissional desenvolvido com Next.js 15, TypeScript, TailwindCSS e Framer Motion.
+Portfólio pessoal de **Menozin**, desenvolvedor de **bots, automações e sistemas para Discord**, mostrando minha trajetória desde os primeiros projetos até a criação da **VØID Systems**.
 
-## 🚀 Tecnologias
+Este site foi criado para apresentar **história real**, **projetos entregues**, **evolução técnica** e **soluções desenvolvidas para comunidades e empresas**.
 
-- **Next.js 15** (App Router)
-- **TypeScript**
-- **TailwindCSS**
-- **Framer Motion** (animações)
-- **React 19**
+---
 
-## 🎨 Design
+## 🧠 Sobre
 
-- Visual dark-first premium e minimal
-- Tema claro/escuro com toggle e persistência
-- Paleta de cores profissional
-- Animações suaves e elegantes
-- Totalmente responsivo
+Minha jornada começou no **início de junho**, durante a criação de um servidor próprio de DayZ.  
+Diante da dificuldade de encontrar bots acessíveis e funcionais, passei a desenvolver meus **próprios bots**, inicialmente simples, mas totalmente funcionais.
 
-## 📦 Instalação
+Com o tempo, esses projetos evoluíram e deram origem à **ZinStore**, onde entreguei soluções completas para diversos clientes, sempre com **feedbacks 5/5** e sistemas estáveis, sem necessidade de suporte constante.
 
-```bash
-# Instalar dependências
-npm install
+No **final de dezembro**, a ZinStore evoluiu para a **VØID Systems**, agora com:
+- estrutura mais profissional
+- equipe preparada para atendimento
+- bots hospedados
+- sistemas personalizados
+- foco em qualidade e escalabilidade
 
-# Configurar webhook do Discord (opcional)
-# Copie .env.example para .env.local e adicione seu webhook
-cp .env.example .env.local
+---
 
-# Executar em desenvolvimento
-npm run dev
+## 🕒 Linha do Tempo
 
-# Build para produção
-npm run build
+- **Junho** — Início com bots próprios para servidor DayZ  
+- **Julho / Agosto** — Bot de clãs e bot de status de servidor  
+- **Setembro** — Encerramento do projeto DayZ  
+- **Outubro** — Criação da ZinStore  
+- **Outubro / Novembro** — Projetos para Farm Brasil, Santos Optimizations, Hype Otimizações, Abel e VL Garcia  
+- **Dezembro** — Pausa da ZinStore  
+- **Final de Dezembro** — Criação da **VØID Systems**
 
-# Iniciar servidor de produção
-npm start
-```
+---
 
-O site estará disponível em [http://localhost:3000](http://localhost:3000)
+## 🧩 Projetos em Destaque
 
-### 🔗 Configurar Webhook do Discord
+- **Bot de Criação de Clãs (DayZ)**  
+  Sistema com formulário interativo que cria automaticamente canais, calls e cargos.
 
-Para receber mensagens do formulário de contato no Discord:
+- **Bot de Status de Servidor (DayZ)**  
+  Exibição de status online/offline, jogadores conectados e IP do servidor.
 
-1. Crie um webhook no seu servidor Discord
-2. Copie `.env.example` para `.env.local`
-3. Adicione a URL do webhook em `DISCORD_WEBHOOK_URL`
-4. Reinicie o servidor
+- **Farm Brasil**  
+  Configuração completa do servidor + bot de ticket, autorole, anúncios, sorteios e boas-vindas.
 
-**Guia completo**: Veja [CONFIGURAR-WEBHOOK.md](CONFIGURAR-WEBHOOK.md)
+- **Santos Optimizations**  
+  Servidor completo + bot de ticket, anúncios, sorteios e automações.
 
-## 📁 Estrutura do Projeto
+- **Hype Otimizações**  
+  Desenvolvimento de bot de ticket profissional.
 
-```
-menozin-portfolio/
-├── app/                      # App Router do Next.js
-│   ├── layout.tsx           # Layout principal
-│   ├── page.tsx             # Página inicial
-│   ├── globals.css          # Estilos globais
-│   ├── sobre/               # Página sobre
-│   ├── projetos/            # Página de projetos
-│   │   └── [slug]/          # Páginas dinâmicas de projetos
-│   └── contato/             # Página de contato
-├── components/              # Componentes reutilizáveis
-│   ├── Header.tsx           # Cabeçalho com navegação
-│   ├── Footer.tsx           # Rodapé
-│   ├── ThemeProvider.tsx    # Provider de tema
-│   └── ProjectDetail.tsx    # Detalhe de projeto
-├── lib/                     # Utilitários e dados
-│   └── projects.ts          # Dados dos projetos
-└── public/                  # Arquivos estáticos
-```
+- **Abel**  
+  Design para loja.
 
-## 📄 Páginas
+- **VL Garcia**  
+  Sistema completo com bots de ticket, inscrição, registro, hierarquia e bot geral.
 
-### Home (`/`)
-- Hero section com apresentação
-- Seção "O que eu faço"
-- Projetos em destaque
-- Link para VØID Systems
+---
 
-### Sobre (`/sobre`)
-- História e trajetória
-- Timeline de evolução
-- Tecnologias utilizadas
+## 🧠 Tecnologias & Ferramentas
 
-### Projetos (`/projetos`)
-- Grid de todos os projetos
-- Busca por texto
-- Filtros por categoria
-- Páginas individuais para cada projeto
+- Node.js
+- Discord.js
+- Sistemas interativos (botões, formulários, embeds)
+- Automação de servidores
+- Design e layout para Discord
+- Bots hospedados
 
-### Contato (`/contato`)
-- Links para redes sociais
-- Formulário de contato
-- CTA para Discord
+---
 
-## 🎯 Features
+## 🌐 Sobre a VØID Systems
 
-- ✅ SEO otimizado com metadata
-- ✅ OpenGraph tags
-- ✅ Tema claro/escuro persistente
-- ✅ Animações com Framer Motion
-- ✅ Totalmente responsivo
-- ✅ TypeScript para type safety
-- ✅ Componentes modulares
-- ✅ Rotas estáticas geradas em build time
-- ✅ Performance otimizada
-- ✅ Formulário de contato com webhook Discord
+A **VØID Systems** é a evolução natural da ZinStore, focada em:
+- Bots hospedados para Discord
+- Bots personalizados sob demanda
+- Configuração profissional de servidores
+- Design e identidade visual
+- Atendimento organizado e estruturado
 
-## 🔧 Personalização
+> A VØID Systems está apenas no começo.  
+> Muitos novos sistemas e soluções ainda estão por vir.
 
-### Adicionar Novos Projetos
+---
 
-Edite o arquivo `lib/projects.ts` e adicione um novo objeto ao array `projects`:
+## 📫 Contato
 
-```typescript
-{
-  id: "8",
-  slug: "novo-projeto",
-  title: "Título do Projeto",
-  client: "Nome do Cliente",
-  description: "Descrição curta",
-  fullDescription: "Descrição completa",
-  problem: "Problema que foi resolvido",
-  solution: "Como foi resolvido",
-  result: "Resultado obtido",
-  tags: ["Tag1", "Tag2"],
-  category: "ticket", // ou outra categoria
-  stack: ["Tecnologia1", "Tecnologia2"],
-  deliverables: ["Item 1", "Item 2"],
-  featured: false,
-  year: 2026
-}
-```
+- **Discord (VØID Systems):** https://discord.gg/voidsystems  
+- **Instagram:** https://www.instagram.com/enzo_kkjkj/
 
-### Alterar Cores
+---
 
-Edite o arquivo `tailwind.config.ts` para personalizar a paleta de cores.
+## 📌 Observação
 
-### Modificar Conteúdo
+Este portfólio representa **projetos reais**, com feedbacks reais e aprendizado contínuo.  
+Não é apenas um site visual, mas um registro da evolução prática no desenvolvimento de sistemas para Discord.
 
-- **Textos da home**: `app/page.tsx`
-- **Sobre**: `app/sobre/page.tsx`
-- **Contato**: `app/contato/page.tsx`
+---
 
-## 🌐 Deploy
-
-### Vercel (Recomendado)
-
-1. Faça push do código para GitHub
-2. Importe o projeto na Vercel
-3. Deploy automático
-
-### Outros Provedores
-
-```bash
-# Build
-npm run build
-
-# Os arquivos estarão em .next/
-# Configure seu provedor para servir a aplicação Next.js
-```
-
-## 📱 Redes Sociais
-
-- Discord: [VØID Systems](https://discord.gg/voidsystems)
-- Instagram: [@enzo_kkjkj](https://www.instagram.com/enzo_kkjkj/)
-
-## 📝 Licença
-
-© 2026 Menozin. Todos os direitos reservados.
+© Menozin — Todos os direitos reservados
