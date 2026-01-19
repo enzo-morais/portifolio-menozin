@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-light: 245 247 250;
+    --bg-dark: 11 13 16;
+    --surface-light: 255 255 255;
+    --surface-dark: 17 21 27;
+    --text-primary-light: 26 29 35;
+    --text-primary-dark: 237 239 242;
+    --text-secondary-light: 90 98 112;
+    --text-secondary-dark: 167 175 186;
+    --border-light: 229 232 237;
+    --border-dark: 27 35 48;
+    --accent: 107 134 168;
+    --accent-hover: 122 149 183;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--bg-light));
+    color: rgb(var(--text-primary-light));
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .dark body {
+    background-color: rgb(var(--bg-dark));
+    color: rgb(var(--text-primary-dark));
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.card {
+  background-color: rgb(var(--surface-light));
+  border: 1px solid rgb(var(--border-light));
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.dark .card {
+  background-color: rgb(var(--surface-dark));
+  border-color: rgb(var(--border-dark));
+}
+
+.btn-primary {
+  background-color: rgb(var(--accent));
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: rgb(var(--accent-hover));
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  border: 1px solid rgb(var(--border-light));
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: inline-block;
+  text-align: center;
+}
+
+.dark .btn-secondary {
+  border-color: rgb(var(--border-dark));
+}
+
+.btn-secondary:hover {
+  background-color: rgb(var(--surface-light));
+}
+
+.dark .btn-secondary:hover {
+  background-color: rgb(var(--surface-dark));
 }

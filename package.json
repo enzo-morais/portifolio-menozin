@@ -1,13 +1,17 @@
 {
   "name": "menozin-portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "Portfólio profissional de Menozin - Desenvolvedor de Bots Discord",
+  "author": "Menozin",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
+    "framer-motion": "^12.27.1",
     "next": "16.1.3",
     "react": "19.2.3",
     "react-dom": "19.2.3"

@@ -1,36 +1,174 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio Menozin
 
-## Getting Started
+Portfólio pessoal profissional desenvolvido com Next.js 15, TypeScript, TailwindCSS e Framer Motion.
 
-First, run the development server:
+## 🚀 Tecnologias
+
+- **Next.js 15** (App Router)
+- **TypeScript**
+- **TailwindCSS**
+- **Framer Motion** (animações)
+- **React 19**
+
+## 🎨 Design
+
+- Visual dark-first premium e minimal
+- Tema claro/escuro com toggle e persistência
+- Paleta de cores profissional
+- Animações suaves e elegantes
+- Totalmente responsivo
+
+## 📦 Instalação
 
 ```bash
+# Instalar dependências
+npm install
+
+# Configurar webhook do Discord (opcional)
+# Copie .env.example para .env.local e adicione seu webhook
+cp .env.example .env.local
+
+# Executar em desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build para produção
+npm run build
+
+# Iniciar servidor de produção
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O site estará disponível em [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🔗 Configurar Webhook do Discord
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para receber mensagens do formulário de contato no Discord:
 
-## Learn More
+1. Crie um webhook no seu servidor Discord
+2. Copie `.env.example` para `.env.local`
+3. Adicione a URL do webhook em `DISCORD_WEBHOOK_URL`
+4. Reinicie o servidor
 
-To learn more about Next.js, take a look at the following resources:
+**Guia completo**: Veja [CONFIGURAR-WEBHOOK.md](CONFIGURAR-WEBHOOK.md)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Estrutura do Projeto
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+menozin-portfolio/
+├── app/                      # App Router do Next.js
+│   ├── layout.tsx           # Layout principal
+│   ├── page.tsx             # Página inicial
+│   ├── globals.css          # Estilos globais
+│   ├── sobre/               # Página sobre
+│   ├── projetos/            # Página de projetos
+│   │   └── [slug]/          # Páginas dinâmicas de projetos
+│   └── contato/             # Página de contato
+├── components/              # Componentes reutilizáveis
+│   ├── Header.tsx           # Cabeçalho com navegação
+│   ├── Footer.tsx           # Rodapé
+│   ├── ThemeProvider.tsx    # Provider de tema
+│   └── ProjectDetail.tsx    # Detalhe de projeto
+├── lib/                     # Utilitários e dados
+│   └── projects.ts          # Dados dos projetos
+└── public/                  # Arquivos estáticos
+```
 
-## Deploy on Vercel
+## 📄 Páginas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Home (`/`)
+- Hero section com apresentação
+- Seção "O que eu faço"
+- Projetos em destaque
+- Link para VØID Systems
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Sobre (`/sobre`)
+- História e trajetória
+- Timeline de evolução
+- Tecnologias utilizadas
+
+### Projetos (`/projetos`)
+- Grid de todos os projetos
+- Busca por texto
+- Filtros por categoria
+- Páginas individuais para cada projeto
+
+### Contato (`/contato`)
+- Links para redes sociais
+- Formulário de contato
+- CTA para Discord
+
+## 🎯 Features
+
+- ✅ SEO otimizado com metadata
+- ✅ OpenGraph tags
+- ✅ Tema claro/escuro persistente
+- ✅ Animações com Framer Motion
+- ✅ Totalmente responsivo
+- ✅ TypeScript para type safety
+- ✅ Componentes modulares
+- ✅ Rotas estáticas geradas em build time
+- ✅ Performance otimizada
+- ✅ Formulário de contato com webhook Discord
+
+## 🔧 Personalização
+
+### Adicionar Novos Projetos
+
+Edite o arquivo `lib/projects.ts` e adicione um novo objeto ao array `projects`:
+
+```typescript
+{
+  id: "8",
+  slug: "novo-projeto",
+  title: "Título do Projeto",
+  client: "Nome do Cliente",
+  description: "Descrição curta",
+  fullDescription: "Descrição completa",
+  problem: "Problema que foi resolvido",
+  solution: "Como foi resolvido",
+  result: "Resultado obtido",
+  tags: ["Tag1", "Tag2"],
+  category: "ticket", // ou outra categoria
+  stack: ["Tecnologia1", "Tecnologia2"],
+  deliverables: ["Item 1", "Item 2"],
+  featured: false,
+  year: 2026
+}
+```
+
+### Alterar Cores
+
+Edite o arquivo `tailwind.config.ts` para personalizar a paleta de cores.
+
+### Modificar Conteúdo
+
+- **Textos da home**: `app/page.tsx`
+- **Sobre**: `app/sobre/page.tsx`
+- **Contato**: `app/contato/page.tsx`
+
+## 🌐 Deploy
+
+### Vercel (Recomendado)
+
+1. Faça push do código para GitHub
+2. Importe o projeto na Vercel
+3. Deploy automático
+
+### Outros Provedores
+
+```bash
+# Build
+npm run build
+
+# Os arquivos estarão em .next/
+# Configure seu provedor para servir a aplicação Next.js
+```
+
+## 📱 Redes Sociais
+
+- Discord: [VØID Systems](https://discord.gg/voidsystems)
+- Instagram: [@enzo_kkjkj](https://www.instagram.com/enzo_kkjkj/)
+
+## 📝 Licença
+
+© 2026 Menozin. Todos os direitos reservados.
