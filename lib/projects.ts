@@ -14,9 +14,59 @@ export interface Project {
   deliverables: string[];
   featured: boolean;
   year: number;
+  url?: string;
 }
 
 export const projects: Project[] = [
+  {
+    id: "11",
+    slug: "void-ticket",
+    title: "VØID Ticket",
+    client: "VØID Systems",
+    description: "Sistema completo de tickets para Discord com IA (GPT-4o-mini) e dashboard web",
+    fullDescription: "Sistema profissional de gerenciamento de tickets para Discord com dashboard web completo, integração com IA (GPT-4o-mini) e arquitetura full-stack moderna. Desenvolvido para comunidades que precisam de suporte organizado e automatizado.",
+    problem: "Servidores Discord precisam de um sistema profissional de tickets com automação inteligente, dashboard web para gerenciamento e personalização completa, algo que não existe no mercado com todas essas features integradas.",
+    solution: "Desenvolvi um sistema full-stack completo: Bot Discord com IA integrada (GPT-4o-mini) para respostas automáticas contextualizadas, dashboard web Next.js 14 com autenticação OAuth2, API REST com Express.js, banco PostgreSQL (Supabase), sistema de transcripts HTML, logs com webhooks, múltiplos painéis customizáveis, editor rico de mensagens, e tema VØID minimalista preto e branco.",
+    result: "Sistema completo em produção usado por múltiplos servidores Discord. Arquitetura escalável com ~15.000+ linhas de código, 100+ arquivos, 20+ componentes React, 15+ rotas API. Deploy multi-plataforma (Vercel + Discloud + Supabase). Demonstra domínio completo de full-stack development, integração de APIs complexas, UI/UX design profissional e gestão de projeto do conceito ao deploy.",
+    tags: ["Next.js 14", "Discord.js", "OpenAI GPT-4o", "TypeScript", "PostgreSQL", "OAuth2", "Full-Stack"],
+    category: "ticket",
+    stack: [
+      "Next.js 14 (App Router)",
+      "React 18",
+      "TypeScript",
+      "Tailwind CSS",
+      "Discord.js v14",
+      "Node.js",
+      "Express.js",
+      "PostgreSQL (Supabase)",
+      "OpenAI API (GPT-4o-mini)",
+      "Discord OAuth2",
+      "JWT Authentication",
+      "Vercel",
+      "Discloud"
+    ],
+    deliverables: [
+      "Bot Discord com IA integrada (GPT-4o-mini)",
+      "Dashboard web completo com autenticação OAuth2",
+      "API REST com Express.js e PostgreSQL",
+      "Sistema de painéis customizáveis (botões/select menus)",
+      "Assistente IA com histórico de conversa",
+      "Sistema de feedback (Resolveu/Preciso de Ajuda)",
+      "Transcripts HTML completos",
+      "Logs detalhados com webhooks",
+      "Editor de texto rico (Markdown)",
+      "Picker de emojis customizados do Discord",
+      "Seleção visual de canais, cargos e categorias",
+      "Sistema de cooldown configurável",
+      "Múltiplos tipos de tickets por servidor",
+      "Personalização completa (cores, mensagens, emojis)",
+      "Estatísticas de tickets",
+      "Tema VØID Limbo (minimalismo preto e branco)"
+    ],
+    featured: true,
+    year: 2025,
+    url: "https://voidticket.vercel.app"
+  },
   {
     id: "1",
     slug: "bot-criacao-clans-dayz",

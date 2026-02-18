@@ -3,17 +3,17 @@
 @layer base {
   :root {
     --bg-light: 245 247 250;
-    --bg-dark: 11 13 16;
+    --bg-dark: 0 0 0;
     --surface-light: 255 255 255;
-    --surface-dark: 17 21 27;
+    --surface-dark: 10 10 10;
     --text-primary-light: 26 29 35;
-    --text-primary-dark: 237 239 242;
+    --text-primary-dark: 255 255 255;
     --text-secondary-light: 90 98 112;
-    --text-secondary-dark: 167 175 186;
+    --text-secondary-dark: 192 192 192;
     --border-light: 229 232 237;
-    --border-dark: 27 35 48;
-    --accent: 107 134 168;
-    --accent-hover: 122 149 183;
+    --border-dark: 26 26 26;
+    --accent: 255 255 255;
+    --accent-hover: 192 192 192;
   }
 
   html {
@@ -30,6 +30,29 @@
     background-color: rgb(var(--bg-dark));
     color: rgb(var(--text-primary-dark));
   }
+
+  /* Custom Scrollbar - VØID Theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
 }
 
 .card {
@@ -38,32 +61,49 @@
   border-radius: 1rem;
   padding: 1.5rem;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  transition: box-shadow 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transform: translateY(-2px);
 }
 
 .dark .card {
   background-color: rgb(var(--surface-dark));
   border-color: rgb(var(--border-dark));
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.dark .card:hover {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary {
-  background-color: rgb(var(--accent));
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
   color: white;
   padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
   font-weight: 500;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover {
-  background-color: rgb(var(--accent-hover));
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 50%, #2a2a2a 100%);
   transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.dark .btn-primary {
+  background: linear-gradient(135deg, #ffffff 0%, #c0c0c0 50%, #ffffff 100%);
+  color: #000000;
+}
+
+.dark .btn-primary:hover {
+  background: linear-gradient(135deg, #c0c0c0 0%, #a0a0a0 50%, #c0c0c0 100%);
 }
 
 .btn-secondary {
@@ -71,9 +111,10 @@
   padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
   font-weight: 500;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
   text-align: center;
+  background-color: transparent;
 }
 
 .dark .btn-secondary {
@@ -82,8 +123,19 @@
 
 .btn-secondary:hover {
   background-color: rgb(var(--surface-light));
+  transform: scale(1.05);
 }
 
 .dark .btn-secondary:hover {
   background-color: rgb(var(--surface-dark));
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* VØID Glow Effect */
+.void-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.void-float {
+  animation: float 6s ease-in-out infinite;
 }
