@@ -6,51 +6,34 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class",
   theme: {
+    colors: {
+      black: "#000000",
+      white: "#ffffff",
+      silver: "#c0c0c0",
+      purple: "#7c3aed",
+      transparent: "transparent",
+      current: "currentColor",
+    },
     extend: {
       colors: {
-        // VØID Theme Colors
         void: {
           black: "#000000",
           dark: "#0a0a0a",
-          darker: "#121212",
-          gray: "#1a1a1a",
-          light: "#2a2a2a",
-          lighter: "#3a3a3a",
-          white: "#ffffff",
-          silver: "#c0c0c0",
+          card: "#1a1a1a",
+          "card-hover": "#2a2a2a",
+          muted: "#a1a1aa",
         },
-        background: {
-          light: "#F5F7FA",
-          dark: "#000000",
+        primary: {
+          DEFAULT: "#7c3aed",
+          hover: "#6d28d9",
         },
-        surface: {
-          light: "#FFFFFF",
-          dark: "#0a0a0a",
-        },
-        text: {
-          primary: {
-            light: "#1A1D23",
-            dark: "#ffffff",
-          },
-          secondary: {
-            light: "#5A6270",
-            dark: "#c0c0c0",
-          },
-        },
-        border: {
-          light: "#E5E8ED",
-          dark: "#1a1a1a",
-        },
-        accent: {
-          DEFAULT: "#ffffff",
-          hover: "#c0c0c0",
-        },
+        danger: "#ef4444",
+        success: "#22c55e",
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
-        display: ["var(--font-space-grotesk)"],
+        sans: ["var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-geist-mono)", "monospace"],
       },
       borderRadius: {
         "2xl": "1rem",
@@ -62,14 +45,16 @@ const config: Config = {
       },
       backgroundImage: {
         "void-gradient": "linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%)",
-        "void-gradient-hover": "linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%)",
         "void-radial": "radial-gradient(circle at center, #1a1a1a 0%, #000000 100%)",
+        "text-gradient": "linear-gradient(to right, #ffffff, #c0c0c0, #ffffff)",
       },
       animation: {
-        "fade-in": "fadeIn 0.5s ease-out",
+        "fade-in": "fadeIn 0.6s ease-out forwards",
         float: "float 6s ease-in-out infinite",
         glow: "glow 2s ease-in-out infinite",
         shine: "shine 3s linear infinite",
+        twinkle: "twinkle 3s ease-in-out infinite",
+        drift: "drift1 8s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
@@ -87,6 +72,15 @@ const config: Config = {
         shine: {
           "0%": { backgroundPosition: "-200% center" },
           "100%": { backgroundPosition: "200% center" },
+        },
+        twinkle: {
+          "0%, 100%": { opacity: "0.1" },
+          "50%": { opacity: "0.4" },
+        },
+        drift1: {
+          "0%": { transform: "translate(0, 0) rotate(0deg) scale(1)" },
+          "50%": { transform: "translate(30px, -20px) rotate(3deg) scale(1.05)" },
+          "100%": { transform: "translate(0, 0) rotate(0deg) scale(1)" },
         },
       },
     },

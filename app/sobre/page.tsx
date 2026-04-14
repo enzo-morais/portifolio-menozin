@@ -1,12 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { Metadata } from "next";
+import VoidCard from "@/components/VoidCard";
+import FadeIn from "@/components/FadeIn";
+import VoidBackground from "@/components/VoidBackground";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.6 }
 };
 
 const stagger = {
@@ -57,144 +59,150 @@ export default function Sobre() {
   ];
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <motion.div
-        initial="initial"
-        animate="animate"
-        variants={stagger}
-      >
-        <motion.h1 
-          className="font-display text-5xl md:text-6xl font-bold mb-8"
-          variants={fadeIn}
-        >
-          Sobre
-        </motion.h1>
-
-        <motion.div 
-          className="prose prose-lg max-w-none mb-16"
-          variants={fadeIn}
-        >
-          <p className="text-xl text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-6">
-            Comecei minha trajetória no início de junho, quando decidi criar meu próprio servidor de DayZ. 
-            Durante esse processo, precisei buscar bots para organizar o servidor, porém me deparei sempre 
-            com duas opções: bots caros demais ou bots mal feitos e pouco funcionais.
-          </p>
-          
-          <p className="text-xl text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-6">
-            Diante disso, resolvi criar meus próprios bots, inicialmente simples, mas totalmente funcionais. 
-            Meu primeiro projeto foi um bot de criação de clãs, onde o jogador respondia um formulário 
-            interativo e o sistema criava automaticamente canal de texto, call e cargo do clã. Em seguida, 
-            desenvolvi um bot de status do servidor, exibindo em embed se o servidor estava online ou offline, 
-            quantidade de jogadores conectados e o IP do servidor.
-          </p>
-          
-          <p className="text-xl text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-6">
-            No início de setembro, o projeto do servidor DayZ foi cancelado, mas a experiência adquirida 
-            no desenvolvimento dos bots abriu uma nova oportunidade.
-          </p>
-
-          <p className="text-xl text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-6">
-            No início de outubro, nasceu a <strong>ZinStore</strong>, com foco em criação de bots personalizados 
-            e configuração completa de servidores Discord. O primeiro cliente foi a Farm Brasil, um servidor de 
-            Farming Simulator, totalmente criado e configurado pela ZinStore, incluindo bot de ticket, sistema 
-            de boas-vindas, autorole, sorteios e sistema de anúncios. O servidor funcionou 100% sem necessidade 
-            de suporte, comprovando a estabilidade das soluções entregues.
-          </p>
-
-          <p className="text-xl text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-6">
-            O segundo cliente foi a Santos Optimizations, um servidor de otimização de PC, também 100% configurado 
-            pela ZinStore. Em seguida, atendi a Hype Otimizações, onde desenvolvi exclusivamente o bot de ticket. 
-            O quarto cliente foi Abel, para quem desenvolvi o design da loja. O quinto cliente foi a VL Garcia, 
-            uma empresa virtual de Euro Truck, onde entreguei uma solução completa com bot de ticket, inscrição, 
-            registro, hierarquia e bot geral.
-          </p>
-
-          <p className="text-xl text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-6">
-            <strong>Todos os projetos entregues pela ZinStore receberam avaliações 5/5</strong>, reforçando a 
-            qualidade e confiabilidade do trabalho.
-          </p>
-
-          <p className="text-xl text-text-secondary-light dark:text-text-secondary-dark leading-relaxed mb-6">
-            No início de dezembro, a ZinStore entrou em pausa. Trabalhar sozinho trouxe desafios e desgaste, 
-            o que levou a uma breve interrupção do projeto.
-          </p>
-
-          <p className="text-xl text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">
-            No final de dezembro, após conversas com dois amigos que também desenvolvem bots, decidimos criar 
-            a <strong>VØID Systems</strong>. A VØID nasce com uma estrutura mais sólida, equipe preparada para 
-            atendimento e um diferencial importante: bots hospedados, permitindo que clientes adquiram soluções 
-            prontas sem se preocupar com hospedagem. Atualmente, a VØID Systems já oferece Bot de Ticket hospedado 
-            e Bot de Anúncios hospedado. <strong>A VØID Systems está apenas no começo, com muitos novos sistemas, 
-            projetos e soluções planejadas para o futuro.</strong>
-          </p>
-        </motion.div>
-
-        <motion.h2 
-          className="font-display text-3xl font-bold mb-8"
-          variants={fadeIn}
-        >
-          Timeline
-        </motion.h2>
-
-        <motion.div 
-          className="space-y-8"
-          variants={stagger}
-        >
-          {timeline.map((item, index) => (
-            <motion.div 
-              key={index}
-              className="card relative pl-8 border-l-4 border-accent"
-              variants={fadeIn}
-            >
-              <div className="absolute -left-3 top-6 w-6 h-6 rounded-full bg-accent"></div>
-              
-              <div className="flex items-baseline gap-4 mb-2">
-                <span className="font-display text-2xl font-bold text-accent">
-                  {item.year}
-                </span>
-                <h3 className="font-display text-xl font-semibold">
-                  {item.title}
-                </h3>
-              </div>
-              
-              <p className="text-text-secondary-light dark:text-text-secondary-dark">
-                {item.description}
+    <>
+      <VoidBackground />
+      <div className="relative z-10">
+        <div className="px-6 py-20 max-w-5xl mx-auto">
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={stagger}
+          >
+            <motion.div className="mb-16" variants={fadeIn}>
+              <p className="text-sm text-white/50 uppercase tracking-widest mb-3">
+                Sobre
               </p>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+                Minha Jornada
+              </h1>
             </motion.div>
-          ))}
-        </motion.div>
 
-        <motion.div 
-          className="mt-16 card bg-gradient-to-br from-accent/5 to-accent/10 border-accent/20"
-          variants={fadeIn}
-        >
-          <h3 className="font-display text-2xl font-bold mb-4">
-            Tecnologias e Ferramentas
-          </h3>
-          
-          <div className="flex flex-wrap gap-3">
-            {[
-              "Discord.js",
-              "Node.js",
-              "TypeScript",
-              "JavaScript",
-              "SQLite",
-              "MongoDB",
-              "PostgreSQL",
-              "Git",
-              "REST APIs",
-              "Bot Development"
-            ].map((tech) => (
-              <span 
-                key={tech}
-                className="px-4 py-2 rounded-xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </motion.div>
-      </motion.div>
-    </div>
+            <motion.div 
+              className="space-y-6 mb-16 text-white/60 leading-relaxed"
+              variants={stagger}
+            >
+              <motion.p className="text-lg" variants={fadeIn}>
+                Comecei minha trajetória no início de junho, quando decidi criar meu próprio servidor de DayZ. 
+                Durante esse processo, precisei buscar bots para organizar o servidor, porém me deparei sempre 
+                com duas opções: bots caros demais ou bots mal feitos e pouco funcionais.
+              </motion.p>
+              
+              <motion.p className="text-lg" variants={fadeIn}>
+                Diante disso, resolvi criar meus próprios bots, inicialmente simples, mas totalmente funcionais. 
+                Meu primeiro projeto foi um bot de criação de clãs, onde o jogador respondia um formulário 
+                interativo e o sistema criava automaticamente canal de texto, call e cargo do clã. Em seguida, 
+                desenvolvi um bot de status do servidor, exibindo em embed se o servidor estava online ou offline, 
+                quantidade de jogadores conectados e o IP do servidor.
+              </motion.p>
+              
+              <motion.p className="text-lg" variants={fadeIn}>
+                No início de setembro, o projeto do servidor DayZ foi cancelado, mas a experiência adquirida 
+                no desenvolvimento dos bots abriu uma nova oportunidade.
+              </motion.p>
+
+              <motion.p className="text-lg" variants={fadeIn}>
+                No início de outubro, nasceu a <strong className="text-white">ZinStore</strong>, com foco em criação de bots personalizados 
+                e configuração completa de servidores Discord. O primeiro cliente foi a Farm Brasil, um servidor de 
+                Farming Simulator, totalmente criado e configurado pela ZinStore, incluindo bot de ticket, sistema 
+                de boas-vindas, autorole, sorteios e sistema de anúncios. O servidor funcionou 100% sem necessidade 
+                de suporte, comprovando a estabilidade das soluções entregues.
+              </motion.p>
+
+              <motion.p className="text-lg" variants={fadeIn}>
+                O segundo cliente foi a Santos Optimizations, um servidor de otimização de PC, também 100% configurado 
+                pela ZinStore. Em seguida, atendi a Hype Otimizações, onde desenvolvi exclusivamente o bot de ticket. 
+                O quarto cliente foi Abel, para quem desenvolvi o design da loja. O quinto cliente foi a VL Garcia, 
+                uma empresa virtual de Euro Truck, onde entreguei uma solução completa com bot de ticket, inscrição, 
+                registro, hierarquia e bot geral.
+              </motion.p>
+
+              <motion.p className="text-lg" variants={fadeIn}>
+                <strong className="text-white">Todos os projetos entregues pela ZinStore receberam avaliações 5/5</strong>, reforçando a 
+                qualidade e confiabilidade do trabalho.
+              </motion.p>
+
+              <motion.p className="text-lg" variants={fadeIn}>
+                No início de dezembro, a ZinStore entrou em pausa. Trabalhar sozinho trouxe desafios e desgaste, 
+                o que levou a uma breve interrupção do projeto.
+              </motion.p>
+
+              <motion.p className="text-lg" variants={fadeIn}>
+                No final de dezembro, após conversas com dois amigos que também desenvolvem bots, decidimos criar 
+                a <strong className="text-white">VØID Systems</strong>. A VØID nasce com uma estrutura mais sólida, equipe preparada para 
+                atendimento e um diferencial importante: bots hospedados, permitindo que clientes adquiram soluções 
+                prontas sem se preocupar com hospedagem. Atualmente, a VØID Systems já oferece Bot de Ticket hospedado 
+                e Bot de Anúncios hospedado. <strong className="text-white">A VØID Systems está apenas no começo, com muitos novos sistemas, 
+                projetos e soluções planejadas para o futuro.</strong>
+              </motion.p>
+            </motion.div>
+
+            <motion.div className="mb-16" variants={fadeIn}>
+              <p className="text-sm text-white/50 uppercase tracking-widest mb-8">
+                Timeline
+              </p>
+              <div className="space-y-6">
+                {timeline.map((item, index) => (
+                  <motion.div 
+                    key={index}
+                    variants={fadeIn}
+                  >
+                    <VoidCard className="p-6 relative pl-8 border-l-2" style={{ borderLeftColor: "rgba(255,255,255,0.2)" }}>
+                      <div className="absolute -left-3 top-6 w-6 h-6 rounded-full bg-white"></div>
+                      
+                      <div className="flex items-baseline gap-4 mb-2">
+                        <span className="text-2xl font-bold text-white">
+                          {item.year}
+                        </span>
+                        <h3 className="text-xl font-semibold text-white">
+                          {item.title}
+                        </h3>
+                      </div>
+                      
+                      <p className="text-white/60">
+                        {item.description}
+                      </p>
+                    </VoidCard>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeIn}>
+              <VoidCard className="p-10 sm:p-16">
+                <h3 className="text-2xl font-bold mb-8 text-white">
+                  Tecnologias e Ferramentas
+                </h3>
+                
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    "Discord.js",
+                    "Node.js",
+                    "TypeScript",
+                    "JavaScript",
+                    "SQLite",
+                    "MongoDB",
+                    "PostgreSQL",
+                    "Git",
+                    "REST APIs",
+                    "Bot Development"
+                  ].map((tech) => (
+                    <span 
+                      key={tech}
+                      className="px-4 py-2 rounded-lg text-white text-sm font-medium"
+                      style={{
+                        backgroundColor: "rgba(255,255,255,0.05)",
+                        border: "1px solid rgba(255,255,255,0.1)"
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </VoidCard>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </>
   );
 }
