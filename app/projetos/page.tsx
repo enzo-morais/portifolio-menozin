@@ -38,6 +38,7 @@ export default function Projetos() {
 
   const filteredProjects = projects.filter(project => {
     const matchesSearch = 
+      searchQuery === "" || 
       project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.client.toLowerCase().includes(searchQuery.toLowerCase()) ||
       project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -47,12 +48,6 @@ export default function Projetos() {
     
     return matchesSearch && matchesCategory;
   });
-
-  // Debug logs
-  console.log("Selected category:", selectedCategory);
-  console.log("Total projects:", projects.length);
-  console.log("Filtered projects:", filteredProjects.length);
-  console.log("Projects by category:", projects.map(p => ({ title: p.title, category: p.category })));
 
   return (
     <>
@@ -131,6 +126,7 @@ export default function Projetos() {
 
             {/* Grid de Projetos */}
             <motion.div
+              key={`${selectedCategory}-${searchQuery}`}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
               initial="initial"
               whileInView="animate"
