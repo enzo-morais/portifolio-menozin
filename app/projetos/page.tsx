@@ -48,6 +48,12 @@ export default function Projetos() {
     return matchesSearch && matchesCategory;
   });
 
+  // Debug logs
+  console.log("Selected category:", selectedCategory);
+  console.log("Total projects:", projects.length);
+  console.log("Filtered projects:", filteredProjects.length);
+  console.log("Projects by category:", projects.map(p => ({ title: p.title, category: p.category })));
+
   return (
     <>
       <VoidBackground />
