@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${project.title} - ${project.client} | Menozin`,
+    title: `${project.title} - ${project.client} | Enzo Morais`,
     description: project.description,
     openGraph: {
       title: `${project.title} - ${project.client}`,

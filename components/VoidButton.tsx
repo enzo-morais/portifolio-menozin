@@ -20,22 +20,31 @@ export default function VoidButton({
   target,
   rel,
 }: VoidButtonProps) {
-  const baseStyles =
-    "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300";
+  const base = "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300";
 
-  const variants = {
-    primary:
-      "bg-white text-black hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] hover:scale-105",
-    secondary:
-      "border border-white/20 text-white hover:bg-white/10 hover:border-white/40 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]",
+  const styles = {
+    primary: {
+      background: "var(--btn-primary-bg)",
+      color: "var(--btn-primary-text)",
+    },
+    secondary: {
+      background: "transparent",
+      color: "var(--text-primary)",
+      border: "1px solid var(--card-border-hover)",
+    },
   };
+
+  const hoverClass = variant === "primary"
+    ? "hover:scale-105 hover:opacity-90"
+    : "hover:scale-105";
 
   return (
     <Link
       href={href}
       target={target}
       rel={rel}
-      className={`${baseStyles} ${variants[variant]} ${className}`}
+      className={`${base} ${hoverClass} ${className}`}
+      style={styles[variant]}
     >
       {children}
     </Link>

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sobre - Menozin",
-  description: "Conheça minha trajetória desde junho: do projeto DayZ à ZinStore, e da ZinStore à VØID Systems. Projetos reais com feedbacks 5/5.",
+  title: "Sobre | Enzo Morais",
+  description: "Conheça minha trajetória desde 2024: do projeto DayZ à ZinStore, e da ZinStore à VØID Systems.",
   openGraph: {
-    title: "Sobre - Menozin",
+    title: "Sobre | Enzo Morais",
     description: "Da criação de bots para DayZ à VØID Systems. Uma história de evolução e aprendizado.",
+    images: [{ url: "/1.jpg", width: 200, height: 200, alt: "Enzo Morais" }],
   },
 };
 

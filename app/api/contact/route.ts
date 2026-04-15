@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
       fields,
       timestamp: new Date().toISOString(),
       footer: {
-        text: "Portfólio Menozin"
+        text: "Portfólio Enzo Morais"
       }
     };
 

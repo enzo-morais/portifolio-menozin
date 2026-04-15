@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/projects";
+import VoidBackground from "@/components/VoidBackground";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -20,139 +21,90 @@ const stagger = {
 
 export default function ProjectDetail({ project }: { project: Project }) {
   return (
-    <div className="container mx-auto px-4 py-12 max-w-4xl">
+    <>
+      <VoidBackground />
+      <div className="container mx-auto px-4 py-12 max-w-4xl relative z-10">
       <motion.div
         initial="initial"
         animate="animate"
         variants={stagger}
       >
         {/* Breadcrumb */}
-        <motion.div 
-          className="mb-8 text-text-secondary-light dark:text-text-secondary-dark"
-          variants={fadeIn}
-        >
-          <Link href="/projetos" className="hover:text-accent transition-colors">
+        <motion.div className="mb-8" variants={fadeIn}>
+          <Link href="/projetos" className="text-sm font-medium transition-colors"
+            style={{ color: "var(--text-muted)" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "var(--text-primary)")}
+            onMouseLeave={e => (e.currentTarget.style.color = "var(--text-muted)")}>
             ← Voltar para projetos
           </Link>
         </motion.div>
 
         {/* Header */}
         <motion.div className="mb-12" variants={fadeIn}>
-          <div className="flex items-center gap-3 mb-4">
-            <h1 className="font-display text-4xl md:text-5xl font-bold">
+          <motion.div className="flex items-center gap-3 mb-4" variants={fadeIn}>
+            <h1 className="text-4xl md:text-5xl font-bold" style={{ color: "var(--text-primary)" }}>
               {project.title}
             </h1>
             {project.featured && (
-              <span className="text-sm px-3 py-1 rounded-full bg-accent/20 text-accent">
+              <span className="text-sm px-3 py-1 rounded-full"
+                style={{ background: "var(--tag-bg)", border: "1px solid var(--tag-border)", color: "var(--text-secondary)" }}>
                 Destaque
               </span>
             )}
-          </div>
-          
-          <p className="text-2xl text-accent mb-4">{project.client}</p>
-          
-          <p className="text-xl text-text-secondary-light dark:text-text-secondary-dark mb-6">
+          </motion.div>
+          <motion.p className="text-xl mb-4 font-medium" style={{ color: "var(--text-secondary)" }} variants={fadeIn}>
+            {project.client}
+          </motion.p>
+          <motion.p className="text-lg leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }} variants={fadeIn}>
             {project.fullDescription}
-          </p>
-
+          </motion.p>
           {project.url && (
-            <a 
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary inline-flex items-center gap-2"
-            >
-              <span>Visitar Projeto</span>
-              <svg 
-                className="w-4 h-4" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
-                />
-              </svg>
-            </a>
+            <motion.div variants={fadeIn}>
+              <a href={project.url} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
+                <span>Visitar Projeto</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </motion.div>
           )}
         </motion.div>
 
         {/* Tags */}
-        <motion.div className="flex flex-wrap gap-2 mb-12" variants={fadeIn}>
-          {project.tags.map((tag) => (
-            <span 
-              key={tag}
-              className="px-4 py-2 rounded-xl bg-accent/10 text-accent"
-            >
-              {tag}
-            </span>
+        {/* removido */}
+
+        {/* Problema → Solução → Resultado */}
+        <motion.div className="space-y-5 mb-12" variants={stagger}>
+          {[
+            { label: "Problema",  text: project.problem  },
+            { label: "Solução",   text: project.solution },
+            { label: "Resultado", text: project.result   },
+          ].map(item => (
+            <motion.div key={item.label} variants={fadeIn}
+              className="rounded-2xl p-6 backdrop-blur-md"
+              style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)" }}>
+              <h2 className="text-lg font-semibold mb-3" style={{ color: "var(--text-muted)" }}>
+                {item.label}
+              </h2>
+              <p className="text-lg leading-relaxed" style={{ color: "var(--text-primary)" }}>
+                {item.text}
+              </p>
+            </motion.div>
           ))}
         </motion.div>
 
-        {/* Problema → Solução → Resultado */}
-        <motion.div className="space-y-8 mb-12" variants={stagger}>
-          <motion.div className="card" variants={fadeIn}>
-            <h2 className="font-display text-2xl font-bold mb-4 text-red-400">
-              Problema
-            </h2>
-            <p className="text-text-secondary-light dark:text-text-secondary-dark text-lg">
-              {project.problem}
-            </p>
-          </motion.div>
-
-          <motion.div className="card" variants={fadeIn}>
-            <h2 className="font-display text-2xl font-bold mb-4 text-blue-400">
-              Solução
-            </h2>
-            <p className="text-text-secondary-light dark:text-text-secondary-dark text-lg">
-              {project.solution}
-            </p>
-          </motion.div>
-
-          <motion.div className="card" variants={fadeIn}>
-            <h2 className="font-display text-2xl font-bold mb-4 text-green-400">
-              Resultado
-            </h2>
-            <p className="text-text-secondary-light dark:text-text-secondary-dark text-lg">
-              {project.result}
-            </p>
-          </motion.div>
-        </motion.div>
-
         {/* Stack */}
-        <motion.div className="mb-12" variants={fadeIn}>
-          <h2 className="font-display text-2xl font-bold mb-6">
-            Stack Tecnológica
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            {project.stack.map((tech) => (
-              <span 
-                key={tech}
-                className="px-4 py-2 rounded-xl bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </motion.div>
+        {/* removido */}
 
         {/* O que foi entregue */}
         <motion.div className="mb-12" variants={fadeIn}>
-          <h2 className="font-display text-2xl font-bold mb-6">
-            O que foi entregue
-          </h2>
-          <div className="card">
+          <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--text-primary)" }}>O que foi entregue</h2>
+          <div className="rounded-2xl p-6 backdrop-blur-md" style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)" }}>
             <ul className="space-y-3">
               {project.deliverables.map((item, index) => (
-                <li 
-                  key={index}
-                  className="flex items-start gap-3 text-text-secondary-light dark:text-text-secondary-dark"
-                >
-                  <span className="text-accent mt-1">✓</span>
-                  <span>{item}</span>
+                <li key={index} className="flex items-start gap-3">
+                  <span style={{ color: "var(--text-muted)" }} className="mt-1">✓</span>
+                  <span style={{ color: "var(--text-secondary)" }}>{item}</span>
                 </li>
               ))}
             </ul>
@@ -160,21 +112,18 @@ export default function ProjectDetail({ project }: { project: Project }) {
         </motion.div>
 
         {/* CTA */}
-        <motion.div 
-          className="card bg-gradient-to-br from-accent/5 to-accent/10 border-accent/20 text-center"
-          variants={fadeIn}
-        >
-          <h3 className="font-display text-2xl font-bold mb-4">
+        <motion.div className="rounded-2xl p-8 text-center backdrop-blur-md" variants={fadeIn}
+          style={{ background: "var(--card-bg)", border: "1px solid var(--card-border)" }}>
+          <h3 className="text-2xl font-bold mb-4" style={{ color: "var(--text-primary)" }}>
             Interessado em um projeto similar?
           </h3>
-          <p className="text-text-secondary-light dark:text-text-secondary-dark mb-6">
+          <p className="mb-6" style={{ color: "var(--text-secondary)" }}>
             Entre em contato para discutir como posso ajudar seu servidor ou comunidade.
           </p>
-          <Link href="/contato" className="btn-primary">
-            Entrar em Contato
-          </Link>
+          <Link href="/contato" className="btn-primary">Entrar em Contato</Link>
         </motion.div>
       </motion.div>
-    </div>
+      </div>
+    </>
   );
 }
