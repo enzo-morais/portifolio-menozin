@@ -167,11 +167,8 @@ export default function Orcamento() {
                       >
                         <VoidCard
                           className={`p-4 transition-all ${
-                            selectedServices.includes(service.id) ? "ring-2" : ""
+                            selectedServices.includes(service.id) ? "ring-2 ring-[var(--card-border-hover)]" : ""
                           }`}
-                          style={{
-                            ringColor: selectedServices.includes(service.id) ? "var(--card-border-hover)" : "transparent"
-                          }}
                         >
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
@@ -213,11 +210,8 @@ export default function Orcamento() {
                       >
                         <VoidCard
                           className={`p-4 transition-all ${
-                            selectedExtras.includes(extra.id) ? "ring-2" : ""
+                            selectedExtras.includes(extra.id) ? "ring-2 ring-[var(--card-border-hover)]" : ""
                           }`}
-                          style={{
-                            ringColor: selectedExtras.includes(extra.id) ? "var(--card-border-hover)" : "transparent"
-                          }}
                         >
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
